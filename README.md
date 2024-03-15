@@ -8,7 +8,11 @@ sudo apt install build-essential -y
 node -v
 npm -v
 sudo apt install git -y
+cd /var/www
+chown -R $USER:www-data /var/www
+git clone https://github.com/thixpin/react-voter.git vote-app
 
+cd vote-app
 npm install -g yarn
 npm install -g pm2
 npm install -g serve
