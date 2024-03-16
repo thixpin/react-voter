@@ -6,7 +6,7 @@ class ProgrammingLanguage extends Component {
     constructor() {
         super();
 
-        this.APIHOSTPORT = "nst6cqldr1.execute-api.ap-southeast-1.amazonaws.com";
+        this.APIURL = process.env.REACT_APP_API_URL;
 
         this.state = {
             language: {},
@@ -15,7 +15,7 @@ class ProgrammingLanguage extends Component {
     }
 
     componentDidMount() {
-        axios.get(`https://${this.APIHOSTPORT}/languages/${this.props.id}`).then(
+        axios.get(`${this.APIURL}/languages/${this.props.id}`).then(
             response => this.setState({
                 language: response.data,
                 loaded: true

@@ -5,7 +5,7 @@ class Vote extends Component{
   constructor () {
     super();
 
-    this.APIHOSTPORT = "nst6cqldr1.execute-api.ap-southeast-1.amazonaws.com";
+    this.APIURL = process.env.REACT_APP_API_URL;
 
     this.state = {
       vote: 0
@@ -16,7 +16,7 @@ class Vote extends Component{
 
   handleClick () {
     //this invokes an AJAX request to the API to vote on the current programming language
-    var url = `https://${this.APIHOSTPORT}/languages/${this.props.id}/vote`;
+    var url = `${this.APIURL}/languages/${this.props.id}/vote`;
     axios.get(url)
     .then(response => this.setState({vote: this.state.vote+1}))
 
